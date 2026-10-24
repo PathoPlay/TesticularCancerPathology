@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testicular Cancer | Pathology Learning Module</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        
+        <!-- ─── MAP VIEW (WINDING PATH) ─────────────────────────────────────── -->
+        <div id="map-view" class="view">
+            <header class="app-header">
+                <div class="app-title-area">
+                    <h1>Testicular Cancer Demystified</h1>
+                    <p class="catchphrase">Because Pathology Doesn't Have to Be a Pain in the Abdomen.</p>
+                </div>
+            </header>
+
+            <main class="map-container">
+                <div class="winding-path">
+                    <!-- Module 1 Node Wrapper -->
+                    <div class="node-wrapper" onclick="showPreview('testicular.1')">
+                        <div class="path-node unlocked" id="node-testicular.1">
+                            <div class="node-icon"><i class="fas fa-microscope"></i></div>
+                        </div>
+                        <span class="node-label">1. Normal Testis</span>
+                    </div>
+
+                    <div class="node-wrapper" onclick="showPreview('testicular.2')">
+                        <div class="path-node locked" id="node-testicular.2">
+                            <div class="node-icon"><i class="fas fa-dna"></i></div>
+                        </div>
+                        <span class="node-label">2. Intro to Testicular Cancer</span>
+                    </div>
+
+                    <div class="node-wrapper" onclick="showPreview('testicular.3')">
+                        <div class="path-node locked" id="node-testicular.3">
+                            <i class="fas fa-egg node-icon"></i>
+                        </div>
+                        <span class="node-label">3. Classic Seminoma</span>
+                    </div>
+
+                    <div class="node-wrapper" onclick="showPreview('testicular.4')">
+                        <div class="path-node locked" id="node-testicular.4">
+                            <i class="fas fa-user-clock node-icon"></i>
+                        </div>
+                        <span class="node-label">4. Spermatocytic Tumor</span>
+                    </div>
+
+                    <div class="node-wrapper" onclick="showPreview('testicular.5')">
+                        <div class="path-node locked" id="node-testicular.5">
+                            <i class="fas fa-fire node-icon"></i>
+                        </div>
+                        <span class="node-label">5. Embryonal Carcinoma</span>
+                    </div>
+
+                    <div class="node-wrapper" onclick="showPreview('testicular.6')">
+                        <div class="path-node locked" id="node-testicular.6">
+                            <i class="fas fa-baby node-icon"></i>
+                        </div>
+                        <span class="node-label">6. Yolk Sac Tumor</span>
+                    </div>
+
+                    <div class="node-wrapper" onclick="showPreview('testicular.7')">
+                        <div class="path-node locked" id="node-testicular.7">
+                            <i class="fas fa-skull-crossbones node-icon"></i>
+                        </div>
+                        <span class="node-label">7. Choriocarcinoma</span>
+                    </div>
+
+                    <div class="node-wrapper" onclick="showPreview('testicular.8')">
+                        <div class="path-node locked" id="node-testicular.8">
+                            <i class="fas fa-puzzle-piece node-icon"></i>
+                        </div>
+                        <span class="node-label">8. Teratoma</span>
+                    </div>
+
+                    <div class="node-wrapper" onclick="showPreview('testicular.9')">
+                        <div class="path-node locked" id="node-testicular.9">
+                            <i class="fas fa-flask node-icon"></i>
+                        </div>
+                        <span class="node-label">9. Sex Cord Stromal Tumors</span>
+                    </div>
+
+                    <div class="node-wrapper" onclick="showPreview('testicular.10')">
+                        <div class="path-node locked" id="node-testicular.10">
+                            <i class="fas fa-flag-checkered node-icon"></i>
+                        </div>
+                        <span class="node-label">10. Clinical Presentation, Diagnosis, & Summary</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- ─── LESSON VIEW ─────────────────────────────────────────────────── -->
+        <div id="lesson-view" class="view hidden">
+            <header class="lesson-header">
+                <button class="icon-btn" onclick="exitLesson()"><i class="fas fa-arrow-left"></i></button>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
+                </div>
+            </header>
+
+            <main id="stage" class="lesson-stage">
+                <!-- Dynamic question & concept cards render here via app.js -->
+            </main>
+
+            <div id="feedback-bar" class="feedback-bar">
+                <div class="feedback-content">
+                    <div id="feedback-title" class="feedback-title"></div>
+                    <div id="feedback-msg" class="feedback-msg"></div>
+                </div>
+                <button id="next-btn" class="primary-btn">CONTINUE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── MODAL PREVIEW (Close Button Top-Left) ───────────────────────── -->
+    <div id="lesson-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-top" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <h2 id="modal-title"></h2>
+            <div class="objectives-container">
+                <h4>Learning Objectives:</h4>
+                <ul id="modal-objectives"></ul>
+            </div>
+            <div class="modal-buttons">
+                <button id="start-lesson-btn" class="primary-btn">START LESSON</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── IMAGE LIGHTBOX ──────────────────────────────────────────────── -->
+    <div id="image-lightbox" class="lightbox-overlay hidden" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="close-lightbox" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+            <img id="lightbox-img" src="" alt="Zoomed pathology image" ondblclick="toggleZoom(event)">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="content.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
