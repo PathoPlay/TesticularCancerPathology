@@ -712,7 +712,7 @@ const moduleContent = {
                       "<b>The Marker Fingerprint:</b>" +
                       "<ul>" +
                       "<li>Because both tumors come from early germ cells, they BOTH share the primitive stem-cell marker <b>OCT3/4</b>.</li>" +
-                      "<li>However, Embryonal cells have a unique fingerprint: they are <b>positive</b> for <b>cytokeratin</b> (and CD30, SALL4) and famously <b>NEGATIVE</b> for <b>c-KIT (CD117)</b>.</li>" +
+                      "<li>However, Embryonal cells have a unique fingerprint: they are <b>positive</b> for <b>cytokeratin</b> and famously <b>NEGATIVE</b> for <b>c-KIT (CD117)</b>.</li>" +
                       "</ul>",
                 buttonText: "Continue"
             },
@@ -722,7 +722,7 @@ const moduleContent = {
                 question: "Match the tumor marker to the correct cancer it identifies!",
                 pairs: [
                     { left: "c-KIT (CD117) Positive", right: "Seminoma" },
-                    { left: "Cytokeratin & CD30 Positive", right: "Embryonal Carcinoma" },
+                    { left: "Cytokeratin Positive", right: "Embryonal Carcinoma" },
                     { left: "OCT3/4 Positive", right: "Shared by BOTH Seminoma and Embryonal" }
                 ],
                 explanation: "While both of these tumors express the primitive OCT3/4 switch, Cytokeratin and CD30 are positive for Embryonal Carcinoma, whereas c-KIT is positive in Seminoma.",
@@ -762,10 +762,10 @@ const moduleContent = {
                     { left: "Cell of Origin", right: "Totipotent cells from GCNIS trying to act like an embryonic stem cell." },
                     { left: "Gross Appearance", right: "Hemorrhagic and necrotic (bloody and dead tissue)." },
                     { left: "Microscopic Appearance", right: "Ugly, pleomorphic, and overlapping cells forming primitive glands." },
-                    { left: "CD30", right: "The classic positive tumor marker stains." },
+                    { left: "Cytokeratin", right: "The classic positive tumor marker stains." },
                     { left: "Clinical Presentation", right: "Usually part of a Mixed Germ Cell Tumor; spreads early." }
                 ],
-                explanation: "The cell of origin involves totipotent GCNIS cells, the gross appearance is hemorrhagic and necrotic, and the microscopic appearance shows pleomorphic cells forming primitive glands. Furthermore, CD30 and cytokeratin are classic positive markers, and clinically, the tumor spreads early and is usually part of a mixed germ cell tumor.",
+                explanation: "The cell of origin involves totipotent GCNIS cells, the gross appearance is hemorrhagic and necrotic, and the microscopic appearance shows pleomorphic cells forming primitive glands. Furthermore, cytokeratin are classic positive markers, and clinically, the tumor spreads early and is usually part of a mixed germ cell tumor.",
                 topic: "Embryonal Carcinoma Recap"
             }
         ]
